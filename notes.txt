@@ -1,0 +1,12 @@
+Template 1.0
+Flavor Text
+
+Module ID: Template
+
+Created by: BryceBlazeGames
+
+Manual available here: 
+
+---
+Build 1.0 notes:
+ - Initial release
