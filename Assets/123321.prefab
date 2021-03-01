@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114259912686514618}
   m_Layer: 0
   m_Name: Label2
-  m_TagString: Untagged
+  m_TagString: keyLabel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 114418494188491318}
   m_Layer: 0
   m_Name: Label3
-  m_TagString: Untagged
+  m_TagString: keyLabel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -368,7 +368,7 @@ GameObject:
   - component: {fileID: 114165300045476196}
   m_Layer: 0
   m_Name: Label1
-  m_TagString: Untagged
+  m_TagString: keyLabel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1157,7 +1157,7 @@ MonoBehaviour:
   m_Script: {fileID: 1718998123, guid: 45b809be76fd7a3468b6f517bced6f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CountdownTime: 40
+  CountdownTime: 20
   ResetDelayMin: 10
   ResetDelayMax: 40
   ModuleType: 123321
