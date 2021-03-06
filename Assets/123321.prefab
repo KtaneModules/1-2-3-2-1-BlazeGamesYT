@@ -1415,6 +1415,9 @@ MonoBehaviour:
   - {fileID: 102980429892746838}
   - {fileID: 102515160223487202}
   - {fileID: 102160743946325710}
+  ledOff: {fileID: 2100000, guid: 935bb5c8b474db049908d1d19deb7993, type: 2}
+  ledGreen: {fileID: 2100000, guid: 8c2541a39c73b5a4588c4e95ade4cdda, type: 2}
+  ledRed: {fileID: 2100000, guid: 1515b0918013c15468573c8cce654ecb, type: 2}
 --- !u!114 &114936239891799556
 MonoBehaviour:
   m_ObjectHideFlags: 1

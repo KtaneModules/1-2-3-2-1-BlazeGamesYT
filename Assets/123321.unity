@@ -233,31 +233,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114879278380132324, guid: b851c0debcde0594e97cff5962458a8f,
-        type: 2}
-      propertyPath: ledOff
-      value: 
-      objectReference: {fileID: 2100000, guid: 935bb5c8b474db049908d1d19deb7993, type: 2}
-    - target: {fileID: 114879278380132324, guid: b851c0debcde0594e97cff5962458a8f,
-        type: 2}
-      propertyPath: ledGreen
-      value: 
-      objectReference: {fileID: 2100000, guid: 8c2541a39c73b5a4588c4e95ade4cdda, type: 2}
-    - target: {fileID: 114879278380132324, guid: b851c0debcde0594e97cff5962458a8f,
-        type: 2}
-      propertyPath: ledRed
-      value: 
-      objectReference: {fileID: 2100000, guid: 1515b0918013c15468573c8cce654ecb, type: 2}
-    - target: {fileID: 23576138896715268, guid: b851c0debcde0594e97cff5962458a8f,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 935bb5c8b474db049908d1d19deb7993, type: 2}
-    - target: {fileID: 23774028701524248, guid: b851c0debcde0594e97cff5962458a8f,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 935bb5c8b474db049908d1d19deb7993, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b851c0debcde0594e97cff5962458a8f, type: 2}
   m_IsPrefabParent: 0
