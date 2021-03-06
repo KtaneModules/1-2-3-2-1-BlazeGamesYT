@@ -17,7 +17,8 @@ MonoBehaviour:
   description: "1-2-3-2-1\n\nModule Id: 12321\n\nImplemented By: BryceBlazeGames\nIdea
     by: Pruz\n\n--NOTES\nVersion 0.1\n - Initial Release\n\nVersion 0.5\n - Added
     Button Animation\n - Polish\n \nVersion 1.0\n - Added Functionality\n - Addded
-    Switching Codes.\n - Added More Polish\n - Cleaned Up Code\n - RELEASE DAY WOOHOO"
+    Switching Codes.\n - Added More Polish\n - Added Working LEDS\n - Cleaned Up Code\n
+    - RELEASE DAY WOOHOO"
   version: 0.5
   outputFolder: build
   previewImage: {fileID: 0}

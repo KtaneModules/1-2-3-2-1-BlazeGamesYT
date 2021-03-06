@@ -7,6 +7,7 @@ TagManager:
   - Interactive
   - Pickup
   - keyLabel
+  - keyLED
   layers:
   - Default
   - TransparentFX

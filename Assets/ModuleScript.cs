@@ -23,6 +23,11 @@ public class ModuleScript : MonoBehaviour {
     public static string inputCode = "";
     public static int enteredDigits = 0;
     private bool isActivated = false;
+
+    //Materials
+    public Material ledOff;
+    public Material ledGreen;
+    public Material ledRed;
         
     void Start()
     {
@@ -85,6 +90,7 @@ public class ModuleScript : MonoBehaviour {
         if (isActivated)
         {
 
+            lightLED(key.gameObject);
             inputCode += findTextChild(key.gameObject).GetComponent<TextMesh>().text;
             enteredDigits++;
 
@@ -104,6 +110,7 @@ public class ModuleScript : MonoBehaviour {
 
 
                     strike();
+                    StartCoroutine(ResetLEDS());
                     Debug.Log("Striked From Wrong Code");
 
 
@@ -140,6 +147,7 @@ public class ModuleScript : MonoBehaviour {
 
         isActivated = true;
         Reset();
+        turnOffLEDS();
         reverseAnswer();
 
     }
@@ -167,6 +175,7 @@ public class ModuleScript : MonoBehaviour {
 
     }
 
+    //Code Setters
     private void reverseAnswer()
     {
 
@@ -184,6 +193,8 @@ public class ModuleScript : MonoBehaviour {
         }
         return new string(result);
     }
+
+    //Child Finders
     public static GameObject findTextChild(GameObject parent)
     {
         GameObject result;
@@ -202,6 +213,68 @@ public class ModuleScript : MonoBehaviour {
         }
 
         return result;
+
+    }
+
+    public GameObject findLedChild(GameObject parent)
+    {
+        GameObject result;
+        result = parent;
+
+        foreach (Transform child in parent.transform)
+        {
+            if (child.tag == "keyLED")
+            {
+
+                result = child.gameObject;
+                Debug.Log("Found LED Child: " + child.gameObject.name);
+
+            }
+
+        }
+
+        return result;
+
+    }
+
+    private void lightLED(GameObject key)
+    {
+
+        findLedChild(key).GetComponent<MeshRenderer>().material = ledGreen;
+
+    }
+
+    private IEnumerator ResetLEDS()
+    {
+
+        foreach (KMSelectable key in keys)
+        {
+
+
+            findLedChild(key.gameObject).GetComponent<MeshRenderer>().material = ledRed;
+
+        }
+
+        yield return new WaitForSecondsRealtime(0.5F);
+
+        foreach (KMSelectable key in keys)
+        {
+
+            findLedChild(key.gameObject).GetComponent<MeshRenderer>().material = ledOff;
+
+        }
+
+    }
+
+    private void turnOffLEDS()
+    {
+
+        foreach (KMSelectable key in keys)
+        {
+
+            findLedChild(key.gameObject).GetComponent<MeshRenderer>().material = ledOff;
+
+        }
 
     }
 
