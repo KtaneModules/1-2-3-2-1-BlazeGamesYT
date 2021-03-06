@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 114253925436106780}
   - component: {fileID: 114565167050624372}
   - component: {fileID: 114012411617807086}
-  - component: {fileID: 114879278380132324}
+  - component: {fileID: 114967105045836236}
   m_Layer: 0
   m_Name: 123321
   m_TagString: Untagged
@@ -1394,30 +1394,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShaderNames:
   - KT/Mobile/Diffuse
---- !u!114 &114879278380132324
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1704114761406096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e194dae528b13ae4086641adec290053, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bomb: {fileID: 114253925436106780}
-  audio: {fileID: 114846023309387856}
-  keys:
-  - {fileID: 114936239891799556}
-  - {fileID: 114818160852948860}
-  - {fileID: 114060514351303398}
-  labels:
-  - {fileID: 102980429892746838}
-  - {fileID: 102515160223487202}
-  - {fileID: 102160743946325710}
-  ledOff: {fileID: 2100000, guid: 935bb5c8b474db049908d1d19deb7993, type: 2}
-  ledGreen: {fileID: 2100000, guid: 8c2541a39c73b5a4588c4e95ade4cdda, type: 2}
-  ledRed: {fileID: 2100000, guid: 1515b0918013c15468573c8cce654ecb, type: 2}
 --- !u!114 &114936239891799556
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1453,3 +1429,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShaderNames:
   - KT/Mobile/Diffuse
+--- !u!114 &114967105045836236
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1704114761406096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a54b559e8c8c07449379dbe62c32709, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bomb: {fileID: 114253925436106780}
+  audio: {fileID: 114846023309387856}
+  module: {fileID: 114012411617807086}
+  keys:
+  - {fileID: 114936239891799556}
+  - {fileID: 114818160852948860}
+  - {fileID: 114060514351303398}
+  ledRenderers:
+  - {fileID: 23876249392133204}
+  - {fileID: 23576138896715268}
+  - {fileID: 23774028701524248}
+  keyTexts:
+  - {fileID: 102980429892746838}
+  - {fileID: 102515160223487202}
+  - {fileID: 102160743946325710}
+  ledOff: {fileID: 2100000, guid: 935bb5c8b474db049908d1d19deb7993, type: 2}
+  ledGreen: {fileID: 2100000, guid: 8c2541a39c73b5a4588c4e95ade4cdda, type: 2}
+  ledRed: {fileID: 2100000, guid: 1515b0918013c15468573c8cce654ecb, type: 2}

@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using KModkit;
+using System;
 
 public class ModuleScript : MonoBehaviour {
 
     public KMBombInfo bomb;
     public KMAudio audio;
+    public KMNeedyModule module;
 
     //Selectables
 
     public KMSelectable[] keys;
+    public MeshRenderer[] ledRenderers;
 
     //Text
 
-    public TextMesh[] labels;
+    public TextMesh[] keyTexts;
 
     //Init
     public static string code = "321";
@@ -42,22 +45,15 @@ public class ModuleScript : MonoBehaviour {
         }
 
         //Needy
-        GetComponent<KMNeedyModule>().OnTimerExpired += timerExpired;
-        GetComponent<KMNeedyModule>().OnNeedyActivation += onActivate;
-        GetComponent<KMNeedyModule>().OnNeedyDeactivation += onDeactivate;
-    }
-
-    void Update()
-    {
-
-                
-
+        module.OnTimerExpired += timerExpired;
+        module.OnNeedyActivation += onActivate;
+        module.OnNeedyDeactivation += onDeactivate;
     }
 
     private IEnumerator pressKey(KMSelectable key)
     {
 
-        GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, transform);
+        audio.PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, transform);
         key.AddInteractionPunch(.5f);
 
         //Anim
@@ -74,7 +70,7 @@ public class ModuleScript : MonoBehaviour {
     private IEnumerator releaseKey(KMSelectable key)
     {
 
-        GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonRelease, transform);
+        audio.PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonRelease, transform);
 
         //Anim
         for (int i = 0; i < 5; i++)
@@ -90,8 +86,8 @@ public class ModuleScript : MonoBehaviour {
         if (isActivated)
         {
 
-            lightLED(key.gameObject);
-            inputCode += findTextChild(key.gameObject).GetComponent<TextMesh>().text;
+            lightLED(ledRenderers[Array.IndexOf(keys, key)]);
+            inputCode += keyTexts[Array.IndexOf(keys, key)].text;
             enteredDigits++;
 
             if (enteredDigits == 3)
@@ -128,7 +124,7 @@ public class ModuleScript : MonoBehaviour {
     private void passNeedy()
     {
 
-        GetComponent<KMNeedyModule>().OnPass();
+        module.HandlePass();
         isActivated = false;
 
     }
@@ -162,7 +158,7 @@ public class ModuleScript : MonoBehaviour {
     private void strike()
     {
 
-        GetComponent<KMNeedyModule>().OnStrike();
+        module.OnStrike();
         Reset();
 
     }
@@ -237,30 +233,30 @@ public class ModuleScript : MonoBehaviour {
 
     }
 
-    private void lightLED(GameObject key)
+    private void lightLED(MeshRenderer key)
     {
 
-        findLedChild(key).GetComponent<MeshRenderer>().material = ledGreen;
+        key.material = ledGreen;
 
     }
 
     private IEnumerator ResetLEDS()
     {
 
-        foreach (KMSelectable key in keys)
+        foreach (var key in ledRenderers)
         {
 
 
-            findLedChild(key.gameObject).GetComponent<MeshRenderer>().material = ledRed;
+            key.material = ledRed;
 
         }
 
         yield return new WaitForSecondsRealtime(0.5F);
 
-        foreach (KMSelectable key in keys)
+        foreach (var key in ledRenderers)
         {
 
-            findLedChild(key.gameObject).GetComponent<MeshRenderer>().material = ledOff;
+            key.material = ledOff;
 
         }
 
@@ -269,10 +265,10 @@ public class ModuleScript : MonoBehaviour {
     private void turnOffLEDS()
     {
 
-        foreach (KMSelectable key in keys)
+        foreach (var key in ledRenderers)
         {
 
-            findLedChild(key.gameObject).GetComponent<MeshRenderer>().material = ledOff;
+            key.material = ledOff;
 
         }
 
