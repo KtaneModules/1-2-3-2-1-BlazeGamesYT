@@ -31,9 +31,14 @@ public class ModuleScript : MonoBehaviour {
     public Material ledOff;
     public Material ledGreen;
     public Material ledRed;
-        
+
+    //Logging
+    static int moduleIdCounter = 1;
+    int moduleId;   
     void Start()
     {
+        moduleId = moduleIdCounter++;
+
         
         //Keys
         foreach(KMSelectable key in keys)
@@ -49,7 +54,6 @@ public class ModuleScript : MonoBehaviour {
         module.OnNeedyActivation += onActivate;
         module.OnNeedyDeactivation += onDeactivate;
     }
-
     private IEnumerator pressKey(KMSelectable key)
     {
 
@@ -66,7 +70,6 @@ public class ModuleScript : MonoBehaviour {
         }
 
     }
-
     private IEnumerator releaseKey(KMSelectable key)
     {
 
@@ -92,30 +95,20 @@ public class ModuleScript : MonoBehaviour {
 
             if (enteredDigits == 3)
             {
-
+                Debug.LogFormat("[1-2-3-2-1 #{0}] Inputted Code: {1}", moduleId, inputCode);
                 if (inputCode == code)
                 {
-
-                    Debug.Log("CORRECT!!!");
+                    Debug.LogFormat("[1-2-3-2-1 #{0}] CORRECT!!!", moduleId);
                     inputCode = "";
                     passNeedy();
-
                 }
                 else
                 {
-
-
                     strike();
                     StartCoroutine(ResetLEDS());
-                    Debug.Log("Striked From Wrong Code");
-
-
-
+                    Debug.LogFormat("[1-2-3-2-1 #{0}] Striked From Wrong Code", moduleId);
                 }
-
             }
-
-            Debug.Log(inputCode);
 
         }
 
@@ -134,7 +127,7 @@ public class ModuleScript : MonoBehaviour {
 
         isActivated = false;
         strike();
-        Debug.Log("Striked from time");
+        Debug.LogFormat("[1-2-3-2-1 #{0}] Striked From Time", moduleId);
 
     }
 
@@ -176,7 +169,7 @@ public class ModuleScript : MonoBehaviour {
     {
 
         code = ReverseString(code);
-        Debug.Log("Current Code: " + code);
+        Debug.LogFormat("[1-2-3-2-1 #{0}] Current Code: {1}", moduleId, code);
 
     }
     public static string ReverseString(string str)
@@ -190,48 +183,7 @@ public class ModuleScript : MonoBehaviour {
         return new string(result);
     }
 
-    //Child Finders
-    public static GameObject findTextChild(GameObject parent)
-    {
-        GameObject result;
-        result = parent;
-
-        foreach (Transform child in parent.transform)
-        {
-            if (child.tag == "keyLabel")
-            {
-
-                result = child.gameObject;
-                Debug.Log("Found Text Child: " + child.gameObject.name);
-
-            }
-           
-        }
-
-        return result;
-
-    }
-
-    public GameObject findLedChild(GameObject parent)
-    {
-        GameObject result;
-        result = parent;
-
-        foreach (Transform child in parent.transform)
-        {
-            if (child.tag == "keyLED")
-            {
-
-                result = child.gameObject;
-                Debug.Log("Found LED Child: " + child.gameObject.name);
-
-            }
-
-        }
-
-        return result;
-
-    }
+    
 
     private void lightLED(MeshRenderer key)
     {

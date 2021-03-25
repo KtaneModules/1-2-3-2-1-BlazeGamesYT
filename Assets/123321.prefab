@@ -1130,8 +1130,8 @@ MonoBehaviour:
   CountdownTime: 20
   ResetDelayMin: 10
   ResetDelayMax: 40
-  ModuleType: 123321
-  ModuleDisplayName: 1-2-3-3-2-1
+  ModuleType: 12321
+  ModuleDisplayName: 1-2-3-2-1
   RequiresTimerVisibility: 0
   WarnAtFiveSeconds: 1
 --- !u!114 &114060514351303398
@@ -1288,7 +1288,7 @@ MonoBehaviour:
   - {fileID: 114818160852948860}
   - {fileID: 114060514351303398}
   IsPassThrough: 0
-  ChildRowLength: 0
+  ChildRowLength: 3
   Highlight: {fileID: 114708193479175506}
   SelectableColliders: []
   DefaultSelectableIndex: 0

@@ -14,11 +14,18 @@ MonoBehaviour:
   id: 12321
   title: 1-2-3-2-1
   author: BryceBlazeGames
-  description: "1-2-3-2-1\n\nModule Id: 12321\n\nImplemented By: BryceBlazeGames\nIdea
-    by: Pruz\n\n--NOTES\nVersion 0.1\n - Initial Release\n\nVersion 0.5\n - Added
-    Button Animation\n - Polish\n \nVersion 1.0\n - Added Functionality\n - Addded
-    Switching Codes.\n - Added More Polish\n - Added Working LEDS\n - Cleaned Up Code\n
-    - RELEASE DAY WOOHOO"
-  version: 0.5
+  description: '1-2-3-2-1
+
+
+    Module Id: 12321
+
+
+    Implemented By: BryceBlazeGames
+
+    Idea by: Pruz
+
+
+    Special thanks: Emik & eXish for helping me fix my mod!'
+  version: 1.0
   outputFolder: build
-  previewImage: {fileID: 0}
+  previewImage: {fileID: 2800000, guid: 693884ccb5a8be84183cb61cd352a5ba, type: 3}
